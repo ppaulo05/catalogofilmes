@@ -9,3 +9,13 @@
      flex-wrap: wrap;
      padding: 2rem;
  }
+
+ .card-img-topz{
+    height: 20rem;
+ }
+
+.card{
+    width: 20rem;
+    margin-left: 3px;
+}
+ 

@@ -60,11 +60,18 @@ let btnBuscarFilme = document.querySelector("#btn-buscar-filme");
 
 let listarFilmes = async (filmes) => {
   let listaFilmes = document.querySelector("#lista-filmes");
+  listaFilmes.style.display = "flex";
   listaFilmes.innerHTML = "";
-  console.log(listaFilmes);
+  document.querySelector("#mostrar-filme").innerHTML="";
+  document.querySelector("#mostrar-filme").style.display = "none";
+  //console.log(listaFilmes);
   if(filmes.length > 0) {
     filmes.forEach(async(filme) => {
+      //console.log(filme);
       listaFilmes.appendChild(await filme.getCard());
+      filme.getBtnDetalhes().onclick=()=>{
+        detalhesFilme(filme.id);
+      }
     });
   }
 }
@@ -100,5 +107,31 @@ btnBuscarFilme.onclick = () => {
     }
     return false;
 }
+
+let detalhesFilme = async (id)=>{
+  fetch("http://www.omdbapi.com/?apikey=88ffc734&i="+id)
+  .then((resp)=> resp.json())
+  .then((resp)=> {
+    console.log(resp);
+    let filme=new Filme(
+      resp.imdbID,
+      resp.Title,
+      resp.Year,
+      resp.Genre.split(","),
+      resp.Runtime,
+      resp.Poster,
+      resp.plot,
+      resp.Director,
+      resp.Actors.split(","),
+      resp.Awards,
+      resp.imdbRating
+    )
+    
+    document.querySelector("#mostrar-filme").appendChild(filme.getDetalhesFilme());
+    document.querySelector("#lista-filmes").style.display="none";
+    document.querySelector("#mostar-filme").style.display="flex";
+  });
+}
+
 
 
