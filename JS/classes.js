@@ -75,4 +75,5 @@ class Filme
     return this.btnDetalhes
       }
 
+    
 }
