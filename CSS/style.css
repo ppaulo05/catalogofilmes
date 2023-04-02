@@ -1,21 +1,20 @@
+
 *{
-    margin: 0;
+    margin:0;
     padding: 0;
 }
+.navbar-brand img{
+    width: 2rem;
+}
 
- #listafilmes{
-     display: flex;
-     justify-content: start;
-     flex-wrap: wrap;
-     padding: 2rem;
- }
-
- .card-img-topz{
-    height: 15rem;
- }
+#lista-filmes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    padding: 2rem;
+    
+}
 
 .card{
-    width: 20rem;
-    margin-left: 3px;
+    padding: 10px
 }
- 
