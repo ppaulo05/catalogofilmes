@@ -38,13 +38,14 @@ img.img-detalhes{
     height: 440px;
     padding: 1rem;
     border-radius: 35px;
+    
 }
 
 .card-detalhes{
     display: flex;
     justify-content: space-around;
     width: 860px;
-    height: 450px;
+    height: 520px;
     margin: 3em;
     margin-left: 18rem;
     border-radius: 8px;
