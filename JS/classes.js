@@ -95,10 +95,6 @@ class Filme
         hTitleDetalhes.setAttribute("class", "cardTitle");
         hTitleDetalhes.appendChild(document.createTextNode(this.titulo));
 
-        let salvarFilme = document.createElement('i');
-        salvarFilme.setAttribute("class", "bi bi-star");
-        salvarFilme.setAttribute("id", "salvarDetalhes");
-
         let fecharFilme = document.createElement('button');
         fecharFilme.setAttribute("class", "btn-close");
         fecharFilme.setAttribute("id", this.id);
@@ -155,7 +151,6 @@ class Filme
         cardDetalhes.appendChild(cardBodyDetalhes);
 
         divCabecalho.appendChild(hTitleDetalhes);
-        divCabecalho.appendChild(salvarFilme);
         divCabecalho.appendChild(fecharFilme);
 
         cardBodyDetalhes.appendChild(divCabecalho);
@@ -166,10 +161,7 @@ class Filme
         btnSalvar.setAttribute("id","btnSalvar");
         divDetalhes.appendChild(btnSalvar);
 
-        let btnFechar = document.createElement('button');
-        btnFechar.appendChild(document.createTextNode('Fechar'));
-        btnFechar.setAttribute("id","btnFechar");
-        divDetalhes.appendChild(btnFechar);
+        
 
 
         return cardDetalhes;
