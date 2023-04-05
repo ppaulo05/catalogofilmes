@@ -131,6 +131,24 @@ class Filme
         divAvaliacao.setAttribute("class", "div-avaliacao");
         divAvaliacao.appendChild(document.createTextNode("• Avaliação: "));
 
+        let divButtons = document.createElement("div");
+        divButtons.setAttribute("class", "divButtons");
+
+        let btnFavorito = document.createElement("button");
+        btnFavorito.setAttribute("class", "btnFilmeFavorito");
+        btnFavorito.setAttribute("id", "btnFilmeFavorito");
+        btnFavorito.appendChild(document.createTextNode("Favorito"));
+
+        let btnDesfavoritar = document.createElement("button");
+        btnDesfavoritar.setAttribute("class", "btnDesfavoritar");
+        btnDesfavoritar.setAttribute("id", "btnDesfavoritar");
+        btnDesfavoritar.appendChild(document.createTextNode("Desfavoritar"));
+
+        let btnSalvar = document.createElement('button');
+        btnSalvar.appendChild(document.createTextNode('Favoritar'));
+        btnSalvar.setAttribute("id","btnSalvar");
+        divDetalhes.appendChild(btnSalvar);
+
         divAno.appendChild(document.createTextNode(this.ano));
         divGenero.appendChild(document.createTextNode(this.genero));
         divDuracao.appendChild(document.createTextNode(this.duracao));
@@ -155,14 +173,6 @@ class Filme
 
         cardBodyDetalhes.appendChild(divCabecalho);
         cardBodyDetalhes.appendChild(divDetalhes);
-
-        let btnSalvar = document.createElement('button');
-        btnSalvar.appendChild(document.createTextNode('Favoritar'));
-        btnSalvar.setAttribute("id","btnSalvar");
-        divDetalhes.appendChild(btnSalvar);
-
-        
-
 
         return cardDetalhes;
 

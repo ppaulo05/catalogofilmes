@@ -4,6 +4,7 @@ let btnBuscarFilme = document.querySelector('#btn-buscar-filme');
 let listaFilmes =  document.querySelector("#lista-filmes");
 let mostrarFilmes = document.querySelector('#mostrar-filme');
 let favoritos = document.querySelector('.favoritos');
+let navFavoritos = document.querySelector("#nav-favoritos");
 
 
 btnBuscarFilme.onclick = () => {
@@ -94,18 +95,17 @@ let filmeFavorito =(filme) =>{
     filmes.push(filme);
   }
   else{
-    filmes = filme;
+    filmes = [filme];
   }
 
   filmes=JSON.stringify(filmes);
   localStorage.setItem('filmesFavoritos', filmes);
-  console.log(filmes);
 }
 
-let listarFavorito = () =>{
-  filmeFavorito=JSON.parse(filmeFavorito);
+let listaFavorito = () =>{
+  filmesFavorito=JSON.parse(filmesFavorito);
   let filmes=new Array();
-  filmeFavorito.forEach((item) => {
+  filmesFavorito.forEach((item) => {
     let filme = new filme (
       item.id,
       item.titulo,
@@ -123,9 +123,26 @@ let listarFavorito = () =>{
   listarFilmes(filmes);
 }
 
+navFavoritos.onclick = () => {
 
+  listaFavoritos();
 
+}
 
+const excluirFilme = (id) => {
+
+  let filmesFavorito = JSON.parse(localStorage.getItem('filmesFavoritos'));
+
+  let Id = (filme) => filme.id == id;
+
+  let excluir = filmesFavorito.find(Id);
+
+  filmesFavorito.splice(excluir, 1);
+
+  localStorage.setItem('filmesFavoritos', JSON.stringify(filmeFavorito));
+
+  listaFavoritos();
+}
 
 
 
